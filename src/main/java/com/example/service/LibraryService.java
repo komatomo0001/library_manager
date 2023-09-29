@@ -28,4 +28,10 @@ public class LibraryService {
         Library library  = optionalLibrary.get();
         return library;
     }
+    
+    public Library update(Integer id, LoginUser loginUser) {
+        Library library = this.findById(id);
+        library.setUserId(loginUser.getUser().getId());
+        return this.libraryRepository.save(library);
+    }
 }

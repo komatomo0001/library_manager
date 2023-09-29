@@ -28,12 +28,19 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Title</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
 						            <tr th:each="library : ${libraries}">
 						                <td th:text="${library.id}"></td>
 						                <td th:text="${library.name}"></td>
+						                <td>
+						                <form th:action="@{/library/borrow}" method="get">
+						                    <input type="hidden" name="id" th:value="${library.id}">
+						                    <input type="submit" value="borrow" class="btn btn-info">
+						                </form>
+						                </td>
 						            </tr>
 						        </tbody>
                             </table>
@@ -43,21 +50,5 @@
             </div>
         </div>
     </div>
-    <div class="content table-responsive table-full-width">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="library : ${libraries}">
-                <td th:text="${library.id}"></td>
-                <td th:text="${library.name}"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 </body>
 </html>

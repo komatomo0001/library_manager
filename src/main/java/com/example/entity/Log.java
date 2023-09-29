@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,6 @@ import javax.persistence.Table;
 	@Entity
 	@Table(name = "LOGS")
 	public class Log {
-
 	
 	@Id
     @SequenceGenerator(name = "USER_ID_GENERATOR", sequenceName = "LOG_ID_SEQ", allocationSize = 1)
@@ -20,17 +21,67 @@ import javax.persistence.Table;
     private Integer id;
 	
 	@Column(name = "LIBRARY_ID")
-    private String libraryId;
+    private Integer libraryId;
 
     @Column(name = "USER_ID")
-    private String userId;
+    private Integer userId;
 
     @Column(name = "RENT_DATE")
-    private String rentDate;
+    private LocalDateTime rentDate;
     
     @Column(name = "RETURN_DATE")
-    private String returnDate;
+    private LocalDateTime returnDate;
     
     @Column(name = "RETURN_DUE_DATE")
-    private String returnDueDate;
+    private LocalDateTime returnDueDate;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getLibraryId() {
+		return libraryId;
+	}
+
+	public void setLibraryId(Integer libraryId) {
+		this.libraryId = libraryId;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public LocalDateTime getRentDate() {
+		return rentDate;
+	}
+
+	public void setRentDate(LocalDateTime rentDate) {
+		this.rentDate = rentDate;
+	}
+
+	public LocalDateTime getReturnDate() {
+		return returnDate;
+	}
+
+	public void setReturnDate(LocalDateTime returnDate) {
+		this.returnDate = returnDate;
+	}
+
+	public LocalDateTime getReturnDueDate() {
+		return returnDueDate;
+	}
+
+	public void setReturnDueDate(LocalDateTime returnDueDate) {
+		this.returnDueDate = returnDueDate;
+	}
+
+	
 }
