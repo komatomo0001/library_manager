@@ -1,5 +1,11 @@
 package com.example.repository;
 
-public interface LogRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.entity.Log;
+
+@Repository
+public interface LogRepository extends JpaRepository<Log, Integer>{
 
 }
