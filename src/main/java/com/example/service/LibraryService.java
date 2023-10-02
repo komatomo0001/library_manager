@@ -34,4 +34,10 @@ public class LibraryService {
         library.setUserId(loginUser.getUser().getId());
         return this.libraryRepository.save(library);
     }
+    
+    public Library update(Integer id) {
+        Library library = this.findById(id);
+        library.setUserId(0);
+        return this.libraryRepository.save(library);
+    }
 }

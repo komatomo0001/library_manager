@@ -1,6 +1,8 @@
 package com.example.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,4 +31,16 @@ public class LogService{
 		
 		return this.logRepository.save(log);
 	}
+	
+	public Log update(Integer id, LoginUser loginUser) {
+		Optional<Log> optionalLog = this.logRepository.findFirstByLibraryIdAndUserIdOrderByRentDateDesc(id, loginUser.getUser().getId());
+		Log log = optionalLog.get();
+		log.setReturnDate(LocalDateTime.now());
+		return this.logRepository.save(log);
+	}
+	
+	public List<Log> findByUserId(LoginUser loginUser){
+		return this.logRepository.findByUserId(loginUser.getUser().getId());
+	}
+	
 }

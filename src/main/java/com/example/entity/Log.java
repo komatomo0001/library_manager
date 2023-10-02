@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -34,6 +36,10 @@ import javax.persistence.Table;
     
     @Column(name = "RETURN_DUE_DATE")
     private LocalDateTime returnDueDate;
+    
+    @ManyToOne
+    @JoinColumn(name = "LIBRARY_ID", insertable = false, updatable = false)
+    private Library library;
 
 	public Integer getId() {
 		return id;
@@ -81,6 +87,10 @@ import javax.persistence.Table;
 
 	public void setReturnDueDate(LocalDateTime returnDueDate) {
 		this.returnDueDate = returnDueDate;
+	}
+
+	public Library getLibrary() {
+		return library;
 	}
 
 	
